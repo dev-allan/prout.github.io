@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prout</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
             color: #333;
-            padding: 20px;
+            padding: 2%;
             text-align: center;
         }
 
         .logo {
-            width: 200px;
+            width: 50vw;
+            max-width: 200px;
             margin: 0 auto 20px;
         }
 
         .prout-button {
             display: block;
-            width: 200px;
+            width: 50vw;
+            max-width: 200px;
             height: 50px;
             margin: 20px auto;
             background-color: red;
@@ -27,7 +31,7 @@
             text-align: center;
             line-height: 50px;
             border-radius: 5px;
-            font-size: 24px;
+            font-size: 1.5em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -44,35 +48,76 @@
         p {
             color: #666;
         }
-    </style>
-</head>
-<body>
-    <img class="logo" src="la-personne.png" alt="Logo" />
-    <style>
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .prout-button {
+                font-size: 1.2em;
+            }
+        }
+
         @keyframes vibrate {
-            0% { transform: translate(0); }
-            10% { transform: translate(-2px, 2px); }
-            20% { transform: translate(-2px, -2px); }
-            30% { transform: translate(2px, 2px); }
-            40% { transform: translate(2px, -2px); }
-            50% { transform: translate(0); }
-            60% { transform: translate(-2px, 2px); }
-            70% { transform: translate(-2px, -2px); }
-            80% { transform: translate(2px, 2px); }
-            90% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            0% {
+                transform: translate(0);
+            }
+
+            10% {
+                transform: translate(-2px, 2px);
+            }
+
+            20% {
+                transform: translate(-2px, -2px);
+            }
+
+            30% {
+                transform: translate(2px, 2px);
+            }
+
+            40% {
+                transform: translate(2px, -2px);
+            }
+
+            50% {
+                transform: translate(0);
+            }
+
+            60% {
+                transform: translate(-2px, 2px);
+            }
+
+            70% {
+                transform: translate(-2px, -2px);
+            }
+
+            80% {
+                transform: translate(2px, 2px);
+            }
+
+            90% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
         }
     </style>
+</head>
+
+<body>
+    <img class="logo" src="la-personne.png" alt="Logo" />
 
     <h1>Application Prout</h1>
     <p>By Dev-allan</p>
-    <p></p>
     <div class="prout-button">PROUT !</div>
 
     <script>
         const button = document.querySelector('.prout-button');
         const logo = document.querySelector('.logo');
-        const sounds = ['assets/1.mp3', 'assets/2.mp3', 'assets/3.mp3', 'assets/4.mp3','assets/5.mp3','assets/6.mp3','assets/7.mp3','assets/8.mp3', 'assets/9.mp3']; // Add all your sounds here
+        const sounds = ['assets/1.mp3', 'assets/2.mp3', 'assets/3.mp3', 'assets/4.mp3', 'assets/5.mp3', 'assets/6.mp3', 'assets/7.mp3', 'assets/8.mp3', 'assets/9.mp3']; // Add all your sounds here
 
         let sound = null;
         button.addEventListener('click', () => {
@@ -87,16 +132,17 @@
                 logo.style.animation = '';
             }, 1000);
         });
-        if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-    .then((registration) => {
-        console.log('Service Worker enregistré avec succès:', registration);
-    })
-    .catch((error) => {
-        console.log("Échec de l'enregistrement du Service Worker:", error);
-    });
-}
 
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker enregistré avec succès:', registration);
+                })
+                .catch((error) => {
+                    console.log("Échec de l'enregistrement du Service Worker:", error);
+                });
+        }
     </script>
 </body>
+
 </html>
